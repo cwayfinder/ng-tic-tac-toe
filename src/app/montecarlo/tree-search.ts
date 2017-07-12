@@ -2,6 +2,7 @@ import { Board } from '../game/board';
 import { Tree } from '../tree/tree';
 import { Node } from '../tree/Node';
 import { UCT } from './uct';
+import { State } from './state';
 
 export class MonteCarloTreeSearch {
   private static readonly WIN_SCORE = 10;
@@ -20,11 +21,10 @@ export class MonteCarloTreeSearch {
     const start = Date.now().valueOf();
     const end = start + 60 * this.getMillisForCurrentLevel();
 
-    const tree = new Tree();
+    const state = new State({ board, playerNo: 3 - playerNo });
+
+    const tree = new Tree(state);
     const rootNode = tree.root;
-    rootNode.state.board = board;
-    const opponent = 3 - playerNo;
-    rootNode.state.playerNo = opponent;
 
     while (Date.now().valueOf() < end) {
       // Phase 1 - Selection

@@ -17,8 +17,8 @@ export class Node {
     return result;
   }
 
-  constructor(state?: State) {
-    this.state = state ? State.clone(state) : new State();
+  constructor(state: State) {
+    this.state = State.clone(state);
   }
 
   public getRandomChildNode(): Node {

@@ -1,15 +1,13 @@
 import { MonteCarloTreeSearch } from './montecarlo/tree-search';
 import { UCT } from './montecarlo/uct';
-import { Tree } from './tree/tree';
 import { Board } from './game/board';
+import { State } from './montecarlo/state';
 
 describe('MSTS', () => {
   let mcts;
-  let gameTree;
 
   beforeEach(() => {
     mcts = new MonteCarloTreeSearch();
-    gameTree = new Tree();
   });
 
   it('givenStats_whenGetUCTForNode_thenUCTMatchesWithManualData', () => {
@@ -18,7 +16,7 @@ describe('MSTS', () => {
   });
 
   it('givenInitBoardState_whenGetAllPossibleStates_thenNonEmptyList', () => {
-    const initState = gameTree.root.state;
+    const initState = new State();
     const possibleStates = initState.getAllPossibleStates();
     expect(possibleStates.length).toBeGreaterThan(0);
   });

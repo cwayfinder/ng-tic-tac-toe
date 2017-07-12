@@ -1,5 +1,10 @@
 import { Node } from './node';
+import { State } from '../montecarlo/state';
 
 export class Tree {
-  constructor(public root = new Node()) { }
+  public root: Node;
+
+  constructor(rootState: State) {
+    this.root = new Node(rootState);
+  }
 }

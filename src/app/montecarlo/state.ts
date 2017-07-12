@@ -9,18 +9,18 @@ export class State {
   public move: number;
 
   public static clone(state: State): State {
-    const result = new State(state.board);
+    const result = new State({ board: state.board, playerNo: state.playerNo, move: state.move });
 
-    result.playerNo = state.playerNo;
     result.visitCount = state.visitCount;
     result.winScore = state.winScore;
-    result.move = state.move;
 
     return result;
   }
 
-  constructor(board?: Board) {
-    this.board = board ? Board.clone(board) : new Board();
+  constructor(config: any = {}) {
+    this.board = config.board ? Board.clone(config.board) : new Board();
+    this.playerNo = config.playerNo;
+    this.move = config.move;
   }
 
   public getOpponent(): number {
@@ -35,11 +35,7 @@ export class State {
 
         board.performMove(playerNo, position);
 
-        const state = new State(board);
-        state.playerNo = playerNo;
-        state.move = position;
-
-        return state;
+        return new State({ board, playerNo, move: position });
       });
   }
 
