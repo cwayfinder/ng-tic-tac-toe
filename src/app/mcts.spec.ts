@@ -73,7 +73,7 @@ describe('MSTS', () => {
       player = 3 - player;
     }
     const winStatus = board.checkStatus();
-    console.log(winStatus, board.boardValues);
+    console.log(winStatus, board.cells);
     // board.printBoard();
     expect(winStatus === Board.DRAW || winStatus === Board.P1).toBeTruthy();
   });

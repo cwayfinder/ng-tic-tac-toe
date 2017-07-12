@@ -6,35 +6,35 @@ export class Board {
   public static readonly P1 = 1;
   public static readonly P2 = 2;
 
-  public boardValues: number[];
+  public cells: number[];
 
   public static clone(board: Board): Board {
     const result = new Board();
-    result.boardValues = board.boardValues.map(val => val);
+    result.cells = board.cells.map(val => val);
 
     return result;
   }
 
   constructor() {
-    this.boardValues = Array.from<number>({ length: 9 }).fill(0);
+    this.cells = Array.from<number>({ length: 9 }).fill(0);
   }
 
   public performMove(player: number, move: number): void {
-    this.boardValues[move] = player;
+    this.cells[move] = player;
   }
 
   public checkStatus(): number {
-    const diag1 = [this.boardValues[0], this.boardValues[4], this.boardValues[8]];
-    const diag2 = [this.boardValues[2], this.boardValues[4], this.boardValues[6]];
+    const diag1 = [this.cells[0], this.cells[4], this.cells[8]];
+    const diag2 = [this.cells[2], this.cells[4], this.cells[6]];
 
     const rows = [];
     for (let i = 0; i < 9; i += 3) {
-      rows.push([this.boardValues[i], this.boardValues[i + 1], this.boardValues[i + 2]]);
+      rows.push([this.cells[i], this.cells[i + 1], this.cells[i + 2]]);
     }
 
     const cols = [];
     for (let i = 0; i < 3; i++) {
-      cols.push([this.boardValues[i], this.boardValues[i + 3], this.boardValues[i + 6]]);
+      cols.push([this.cells[i], this.cells[i + 3], this.cells[i + 6]]);
     }
 
     const lines = [diag1, diag2, ...rows, ...cols];
@@ -54,10 +54,10 @@ export class Board {
   }
 
   public getEmptyPositions(): number[] {
-    const size = this.boardValues.length;
+    const size = this.cells.length;
     const emptyPositions = [];
     for (let i = 0; i < size; i++) {
-      if (this.boardValues[i] === 0) {
+      if (this.cells[i] === 0) {
         emptyPositions.push(i);
       }
     }

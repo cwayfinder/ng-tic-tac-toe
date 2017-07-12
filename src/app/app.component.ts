@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   handleClick(humanMove) {
-    if (this.board.boardValues[humanMove] === 0 && this.board.checkStatus() === Board.IN_PROGRESS) {
+    if (this.board.cells[humanMove] === 0 && this.board.checkStatus() === Board.IN_PROGRESS) {
       this.board.performMove(Board.P1, humanMove);
 
       if (this.board.checkStatus() === Board.IN_PROGRESS) {
