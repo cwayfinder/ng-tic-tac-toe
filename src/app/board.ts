@@ -16,7 +16,7 @@ export class Board {
   }
 
   constructor() {
-    this.boardValues = Array.from<number>({length : 9}).fill(0);
+    this.boardValues = Array.from<number>({ length: 9 }).fill(0);
   }
 
   public performMove(player: number, move: number): void {
@@ -27,57 +27,30 @@ export class Board {
     const diag1 = [this.boardValues[0], this.boardValues[4], this.boardValues[8]];
     const diag2 = [this.boardValues[2], this.boardValues[4], this.boardValues[6]];
 
-    const checkDia1gForWin = Board.checkForWin(diag1);
-    if (checkDia1gForWin !== 0) {
-      return checkDia1gForWin;
-    }
-
-    const checkDiag2ForWin = Board.checkForWin(diag2);
-    if (checkDiag2ForWin !== 0) {
-      return checkDiag2ForWin;
-    }
-
-
-    for (let i = 0; i < 3; i++) {
-      const col = [this.boardValues[i], this.boardValues[i + 3], this.boardValues[i + 6]];
-      const checkColForWin = Board.checkForWin(col);
-      if (checkColForWin !== 0) {
-        return checkColForWin;
-      }
-    }
-
+    const rows = [];
     for (let i = 0; i < 9; i += 3) {
-      const row = [this.boardValues[i], this.boardValues[i + 1], this.boardValues[i + 2]];
-      const checkRowForWin = Board.checkForWin(row);
-      if (checkRowForWin !== 0) {
-        return checkRowForWin;
-      }
+      rows.push([this.boardValues[i], this.boardValues[i + 1], this.boardValues[i + 2]]);
     }
 
+    const cols = [];
+    for (let i = 0; i < 3; i++) {
+      cols.push([this.boardValues[i], this.boardValues[i + 3], this.boardValues[i + 6]]);
+    }
 
-    if (this.getEmptyPositions().length > 0) {
+    const lines = [diag1, diag2, ...rows, ...cols];
+    const winLine = lines.find(this.checkForWin);
+
+    if (winLine) {
+      return winLine[0];
+    } else if (this.getEmptyPositions().length > 0) {
       return Board.IN_PROGRESS;
     } else {
       return Board.DRAW;
     }
   }
 
-  private static checkForWin(row: number[]): number {
-    let isEqual = true;
-    const size = row.length;
-    let previous = row[0];
-    for (let i = 0; i < size; i++) {
-      if (previous !== row[i]) {
-        isEqual = false;
-        break;
-      }
-      previous = row[i];
-    }
-    if (isEqual) {
-      return previous;
-    } else {
-      return 0;
-    }
+  checkForWin(arr: number[]) {
+    return arr[0] && arr.every(value => arr[0] === value);
   }
 
   public getEmptyPositions(): number[] {
