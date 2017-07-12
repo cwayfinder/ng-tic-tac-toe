@@ -1,4 +1,4 @@
-import { Board } from '../board';
+import { Board } from '../game/board';
 import { Tree } from '../tree/tree';
 import { Node } from '../tree/Node';
 import { UCT } from './uct';

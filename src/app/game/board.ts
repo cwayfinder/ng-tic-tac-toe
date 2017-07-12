@@ -1,5 +1,5 @@
 export class Board {
-  public static readonly DEFAULT_BOARD_SIZE = 3;
+  public static readonly BOARD_SIZE = 3;
 
   public static readonly IN_PROGRESS = -1;
   public static readonly DRAW = 0;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Board } from './board';
+import { Board } from './game/board';
 import { MonteCarloTreeSearch } from './montecarlo/tree-search';
 
 @Component({

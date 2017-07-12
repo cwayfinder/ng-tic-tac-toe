@@ -1,7 +1,7 @@
 import { MonteCarloTreeSearch } from './montecarlo/tree-search';
 import { UCT } from './montecarlo/uct';
 import { Tree } from './tree/tree';
-import { Board } from './board';
+import { Board } from './game/board';
 
 describe('MSTS', () => {
   let mcts;
@@ -35,7 +35,7 @@ describe('MSTS', () => {
     const board = new Board();
 
     let player = Board.PLAYER1;
-    const totalMoves = Board.DEFAULT_BOARD_SIZE * Board.DEFAULT_BOARD_SIZE;
+    const totalMoves = Board.BOARD_SIZE * Board.BOARD_SIZE;
     for (let i = 0; i < totalMoves; i++) {
       const move = mcts.findNextMove(board, player);
       board.performMove(player, move);
@@ -56,7 +56,7 @@ describe('MSTS', () => {
     mcts3.level = 3;
 
     let player = Board.PLAYER1;
-    const totalMoves = Board.DEFAULT_BOARD_SIZE * Board.DEFAULT_BOARD_SIZE;
+    const totalMoves = Board.BOARD_SIZE * Board.BOARD_SIZE;
     for (let i = 0; i < totalMoves; i++) {
       let move;
       if (player === Board.PLAYER1) {

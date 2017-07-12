@@ -1,4 +1,4 @@
-import { Board } from '../board';
+import { Board } from '../game/board';
 
 export class State {
   public board: Board;
