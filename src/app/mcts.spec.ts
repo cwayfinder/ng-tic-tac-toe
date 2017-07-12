@@ -26,7 +26,7 @@ describe('MSTS', () => {
   it('givenEmptyBoard_whenPerformMove_thenLessAvailablePossitions', () => {
     const board = new Board();
     const initAvailablePositions = board.getEmptyPositions().length;
-    board.performMove(Board.P1, 1);
+    board.performMove(Board.PLAYER1, 1);
     const availablePositions = board.getEmptyPositions().length;
     expect(initAvailablePositions).toBeGreaterThan(availablePositions);
   });
@@ -34,7 +34,7 @@ describe('MSTS', () => {
   it('givenEmptyBoard_whenSimulateInterAIPlay_thenGameDraw', () => {
     const board = new Board();
 
-    let player = Board.P1;
+    let player = Board.PLAYER1;
     const totalMoves = Board.DEFAULT_BOARD_SIZE * Board.DEFAULT_BOARD_SIZE;
     for (let i = 0; i < totalMoves; i++) {
       const move = mcts.findNextMove(board, player);
@@ -55,11 +55,11 @@ describe('MSTS', () => {
     const mcts3 = new MonteCarloTreeSearch();
     mcts3.level = 3;
 
-    let player = Board.P1;
+    let player = Board.PLAYER1;
     const totalMoves = Board.DEFAULT_BOARD_SIZE * Board.DEFAULT_BOARD_SIZE;
     for (let i = 0; i < totalMoves; i++) {
       let move;
-      if (player === Board.P1) {
+      if (player === Board.PLAYER1) {
         move = mcts3.findNextMove(board, player);
       } else {
         move = mcts1.findNextMove(board, player);
@@ -75,6 +75,6 @@ describe('MSTS', () => {
     const winStatus = board.checkStatus();
     console.log(winStatus, board.cells);
     // board.printBoard();
-    expect(winStatus === Board.DRAW || winStatus === Board.P1).toBeTruthy();
+    expect(winStatus === Board.DRAW || winStatus === Board.PLAYER1).toBeTruthy();
   });
 });

@@ -17,11 +17,11 @@ export class AppComponent {
 
   handleClick(humanMove) {
     if (this.board.cells[humanMove] === 0 && this.board.checkStatus() === Board.IN_PROGRESS) {
-      this.board.performMove(Board.P1, humanMove);
+      this.board.performMove(Board.PLAYER1, humanMove);
 
       if (this.board.checkStatus() === Board.IN_PROGRESS) {
-        const cpuMove = this.mcts.findNextMove(this.board, Board.P2);
-        this.board.performMove(Board.P2, cpuMove);
+        const cpuMove = this.mcts.findNextMove(this.board, Board.PLAYER2);
+        this.board.performMove(Board.PLAYER2, cpuMove);
       }
     }
   }

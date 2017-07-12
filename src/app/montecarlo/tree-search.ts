@@ -4,10 +4,9 @@ import { Node } from '../tree/Node';
 import { UCT } from './uct';
 
 export class MonteCarloTreeSearch {
-  static readonly WIN_SCORE = 10;
+  private static readonly WIN_SCORE = 10;
 
-  level: number;
-  opponent: number;
+  public level: number;
 
   constructor() {
     this.level = 3;
@@ -21,11 +20,11 @@ export class MonteCarloTreeSearch {
     const start = Date.now().valueOf();
     const end = start + 60 * this.getMillisForCurrentLevel();
 
-    this.opponent = 3 - playerNo;
     const tree = new Tree();
     const rootNode = tree.root;
     rootNode.state.board = board;
-    rootNode.state.playerNo = this.opponent;
+    const opponent = 3 - playerNo;
+    rootNode.state.playerNo = opponent;
 
     while (Date.now().valueOf() < end) {
       // Phase 1 - Selection
@@ -86,7 +85,7 @@ export class MonteCarloTreeSearch {
     const tempState = tempNode.state;
     let boardStatus = tempState.board.checkStatus();
 
-    if (boardStatus === this.opponent) {
+    if (boardStatus === tempState.playerNo) {
       tempNode.parent.state.winScore = Number.NEGATIVE_INFINITY;
       return boardStatus;
     }

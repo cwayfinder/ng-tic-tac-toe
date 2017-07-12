@@ -3,8 +3,8 @@ export class Board {
 
   public static readonly IN_PROGRESS = -1;
   public static readonly DRAW = 0;
-  public static readonly P1 = 1;
-  public static readonly P2 = 2;
+  public static readonly PLAYER1 = 1;
+  public static readonly PLAYER2 = 2;
 
   public cells: number[];
 
@@ -49,7 +49,7 @@ export class Board {
     }
   }
 
-  checkForWin(arr: number[]) {
+  private checkForWin(arr: number[]) {
     return arr[0] && arr.every(value => arr[0] === value);
   }
 

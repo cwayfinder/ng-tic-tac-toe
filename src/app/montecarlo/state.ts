@@ -8,9 +8,8 @@ export class State {
   public move: number;
 
   public static clone(state: State): State {
-    const result = new State();
+    const result = new State(state.board);
 
-    result.board = Board.clone(state.board);
     result.playerNo = state.playerNo;
     result.visitCount = state.visitCount;
     result.winScore = state.winScore;
