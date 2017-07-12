@@ -35,4 +35,8 @@ export class AppComponent {
       return '';
     }
   }
+
+  restart() {
+    this.board = new Board();
+  }
 }

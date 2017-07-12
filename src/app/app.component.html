@@ -1,3 +1,5 @@
 <div class="field">
   <div class="cell" *ngFor="let cell of board.cells; let i = index" (click)="handleClick(i)">{{formatCell(cell)}}</div>
 </div>
+
+<button *ngIf="this.board.checkStatus() > -1" (click)="restart()">New Game</button>

@@ -1,3 +1,12 @@
+:host {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .field {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,4 +26,9 @@
   align-items: center;
   font-family: sans-serif;
   font-size: 64px;
+}
+
+button {
+  margin: 10px;
+  font-size: 20px;
 }
