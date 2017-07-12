@@ -1,4 +1,5 @@
 import { Board } from '../game/board';
+import { getRandomArrayItem } from '../utils';
 
 export class State {
   public board: Board;
@@ -53,10 +54,8 @@ export class State {
   }
 
   randomPlay(): void {
-    const availablePositions = this.board.getEmptyPositions();
-    const totalPossibilities = availablePositions.length;
-    const selectRandom = Math.floor(Math.random() * ((totalPossibilities - 1) + 1));
-    this.board.performMove(this.playerNo, availablePositions[selectRandom]);
+    const randomPosition = getRandomArrayItem(this.board.getEmptyPositions());
+    this.board.performMove(this.playerNo, randomPosition);
   }
 
   togglePlayer(): void {

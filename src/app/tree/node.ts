@@ -1,4 +1,5 @@
 import { State } from '../montecarlo/state';
+import { getRandomInt } from '../utils';
 
 export class Node {
   state: State;
@@ -16,17 +17,13 @@ export class Node {
     return result;
   }
 
-  private static getRandomInt(min, max): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
   constructor(state?: State) {
     this.state = state ? State.clone(state) : new State();
   }
 
   public getRandomChildNode(): Node {
     const noOfPossibleMoves = this.childArray.length;
-    const selectRandom = Node.getRandomInt(0, noOfPossibleMoves - 1);
+    const selectRandom = getRandomInt(0, noOfPossibleMoves - 1);
     return this.childArray[selectRandom];
   }
 
