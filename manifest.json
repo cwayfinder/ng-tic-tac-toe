@@ -1,8 +1,36 @@
 {
-  "name": "Angular Material",
-  "short_name": "Angular Material",
-  "background_color": "#3F51B5",
-  "start_url": "/",
+  "name": "Tic Tac Toe",
+  "short_name": "TicTacToe",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
   "display": "standalone",
-  "orientation": "portrait"
+  "scope": "/",
+  "start_url": "/ng-tic-tac-toe/",
+  "icons": [
+    {
+      "src": "\/assets\/icons\/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image\/png",
+      "density": "1.5"
+    },
+    {
+      "src": "\/assets\/icons\/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image\/png",
+      "density": "2.0"
+    },
+    {
+      "src": "\/assets\/icons\/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image\/png",
+      "density": "3.0"
+    },
+    {
+      "src": "\/assets\/icons\/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png",
+      "density": "4.0"
+    }
+  ]
+
 }

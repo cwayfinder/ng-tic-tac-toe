@@ -7,8 +7,16 @@
       "/ng-tic-tac-toe/vendor.1f1fc3b42f6a370765dc.bundle.js": "092eee3b362cda22322e662ff038ea2f20a2085e",
       "/ng-tic-tac-toe/inline.c1ab951d67c5dbdb484b.bundle.js": "94e72ff5dbfd427ff09edf04f4a2164b425f2f01",
       "/ng-tic-tac-toe/styles.d41d8cd98f00b204e980.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "/ng-tic-tac-toe/assets/icons/icon-128x128.png": "3f49ed0c44c47ab2de070aafb9b8ad6817ab3701",
+      "/ng-tic-tac-toe/assets/icons/icon-144x144.png": "25e078233b13530c09f9ee64f15b3b2ca7b15b5f",
+      "/ng-tic-tac-toe/assets/icons/icon-152x152.png": "537b745b3102ab129bf3acad67f565f8e6ba43c5",
+      "/ng-tic-tac-toe/assets/icons/icon-192x192.png": "29e0e9aed61adbb0f63c7dcbe823e35c2760e3b5",
+      "/ng-tic-tac-toe/assets/icons/icon-384x384.png": "c05155d0cc00a294b6345f60f783a82d2a21f200",
+      "/ng-tic-tac-toe/assets/icons/icon-512x512.png": "cc1dee5cf49cdb773f6dd66e6b5a7c319e045acd",
+      "/ng-tic-tac-toe/assets/icons/icon-72x72.png": "2592e69c6eeb25408fd1dc975091497341ffdb5c",
+      "/ng-tic-tac-toe/assets/icons/icon-96x96.png": "fb2f6e3732c5eb96b51ba815fe29a914bebd3c6a",
       "/ng-tic-tac-toe/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-      "/ng-tic-tac-toe/manifest.json": "e47dedb369b170257a76f38576415a47a66ee9f7",
+      "/ng-tic-tac-toe/manifest.json": "2c8fbfdef9f5e7245fc8b7c71afc69a5164ddf09",
       "/ng-tic-tac-toe/index.html": "36ca25606ad73cc6ee4eeb54e1a2fbeccef17614"
     },
     "_generatedFromWebpack": true
