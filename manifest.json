@@ -1,0 +1,8 @@
+{
+  "name": "Angular Material",
+  "short_name": "Angular Material",
+  "background_color": "#3F51B5",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
